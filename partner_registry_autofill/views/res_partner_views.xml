@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_form_registry_autofill" model="ir.ui.view">
+        <field name="name">res.partner.form.registry.autofill</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='vat']" position="after">
+                <button name="action_autofill_from_registry" type="object"
+                        string="Update from registry" icon="fa-download"
+                        class="btn-link p-0" colspan="2"
+                        invisible="not vat or not id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

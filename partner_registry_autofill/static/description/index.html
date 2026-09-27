@@ -1,0 +1,76 @@
+<section class="container py-5">
+    <div class="text-center mb-5">
+        <h1 style="color:#1B4F8A;font-weight:700;">Company data from official registries</h1>
+        <h4 class="text-muted fw-normal mt-3">
+            Type a VAT or company number on a contact: Odoo fills in the company's legal name and address
+            from the official Belgian and French registries. Free, no IAP credits, no API key.
+        </h4>
+    </div>
+
+    <div class="row g-4 mb-5">
+        <div class="col-md-4">
+            <div class="h-100 p-4 rounded-3" style="background:#F2F7FC;">
+                <h4 style="color:#1B4F8A;">Belgium</h4>
+                <p class="mb-0">Enterprise / VAT numbers (<code>BE0403170701</code>, <code>0403.170.701</code>) are checked against
+                    <b>VIES</b>, the European Commission's official VAT service, which returns the name and address
+                    registered at the BCE/KBO.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="h-100 p-4 rounded-3" style="background:#F2F7FC;">
+                <h4 style="color:#1B4F8A;">France</h4>
+                <p class="mb-0">SIREN, SIRET or VAT numbers are looked up in the <b>SIRENE</b> registry (INSEE) through
+                    the government API <i>recherche-entreprises.api.gouv.fr</i>. The intra-community VAT number is
+                    computed automatically.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="h-100 p-4 rounded-3" style="background:#F2F7FC;">
+                <h4 style="color:#1B4F8A;">Free &amp; open</h4>
+                <p class="mb-0">No subscription, no credits, no account to create. Works alongside Odoo's
+                    <i>Partner Autocomplete</i>: name search stays available, the VAT field uses the official registry.</p>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="mb-4" style="color:#1B4F8A;">How it works</h2>
+    <div class="row g-4 mb-5">
+        <div class="col-md-4"><h5><span class="badge rounded-pill me-2" style="background:#2F80C8;">1</span>Create a contact</h5>
+            <p>No need to type the name first.</p></div>
+        <div class="col-md-4"><h5><span class="badge rounded-pill me-2" style="background:#2F80C8;">2</span>Enter the number</h5>
+            <p>In the <b>VAT</b> field: Belgian enterprise number, French SIREN, SIRET or VAT number. Spaces and dots are fine.</p></div>
+        <div class="col-md-4"><h5><span class="badge rounded-pill me-2" style="background:#2F80C8;">3</span>Done</h5>
+            <p>Name, street, zip, city, country, company registry and VAT number are filled in when you leave the field.</p></div>
+    </div>
+
+    <div class="mb-5 text-center">
+        <img src="screenshot_be.png" alt="Belgian company filled from its VAT number" class="img-fluid rounded-3 shadow"/>
+    </div>
+    <div class="mb-5 text-center">
+        <img src="screenshot_fr.png" alt="French company filled from its SIRET number" class="img-fluid rounded-3 shadow"/>
+    </div>
+
+    <h2 class="mb-3" style="color:#1B4F8A;">Keep existing contacts up to date</h2>
+    <p class="mb-4">On a saved company, the <b>Update from registry</b> button refreshes the name and address,
+        for example after a move.</p>
+    <div class="mb-5 text-center">
+        <img src="screenshot_update.png" alt="Update from registry button" class="img-fluid rounded-3 shadow"/>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-6">
+            <h4 style="color:#1B4F8A;">Good to know</h4>
+            <ul>
+                <li>Belgian lookups only find companies registered for VAT (VIES does not list non-VAT entities).</li>
+                <li>Data comes live from public services: an internet connection is required.</li>
+                <li>Interface available in English, French and Dutch.</li>
+                <li>Works on Odoo Community and Enterprise, on-premise and Odoo.sh.</li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <h4 style="color:#1B4F8A;">Support &amp; custom development</h4>
+            <p>Questions, bugs or a need for another country or more fields (NACE codes, legal form, directors...)?
+                Contact me at <a href="mailto:support@propublisher.be">support@propublisher.be</a>.</p>
+        </div>
+    </div>
+</section>

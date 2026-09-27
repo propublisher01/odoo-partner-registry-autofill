@@ -1,0 +1,72 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* partner_registry_autofill
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0-20260908\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-27 08:27+0000\n"
+"PO-Revision-Date: 2026-09-27 08:27+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: partner_registry_autofill
+#. odoo-python
+#: code:addons/partner_registry_autofill/models/res_partner.py:0
+msgid "Company registry"
+msgstr ""
+
+#. module: partner_registry_autofill
+#: model:ir.model,name:partner_registry_autofill.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: partner_registry_autofill
+#: model:ir.model.fields,field_description:partner_registry_autofill.field_res_partner__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: partner_registry_autofill
+#. odoo-python
+#: code:addons/partner_registry_autofill/models/res_partner.py:0
+msgid "Enter a VAT or company registry number first."
+msgstr ""
+
+#. module: partner_registry_autofill
+#: model:ir.model.fields,field_description:partner_registry_autofill.field_res_partner__id
+msgid "ID"
+msgstr ""
+
+#. module: partner_registry_autofill
+#. odoo-python
+#: code:addons/partner_registry_autofill/models/res_partner.py:0
+msgid "No French company found for SIREN %s."
+msgstr ""
+
+#. module: partner_registry_autofill
+#. odoo-python
+#: code:addons/partner_registry_autofill/models/res_partner.py:0
+msgid "No active Belgian company found for number %s."
+msgstr ""
+
+#. module: partner_registry_autofill
+#. odoo-python
+#: code:addons/partner_registry_autofill/models/res_partner.py:0
+msgid "The registry could not be reached: %s"
+msgstr ""
+
+#. module: partner_registry_autofill
+#. odoo-python
+#: code:addons/partner_registry_autofill/models/res_partner.py:0
+msgid "Unrecognized number: %s"
+msgstr ""
+
+#. module: partner_registry_autofill
+#: model_terms:ir.ui.view,arch_db:partner_registry_autofill.view_partner_form_registry_autofill
+msgid "Update from registry"
+msgstr ""
