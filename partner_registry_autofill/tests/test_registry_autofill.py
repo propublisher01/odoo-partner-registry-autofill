@@ -111,3 +111,27 @@ class TestRegistryAutofill(TransactionCase):
         with patch(REQUESTS_GET) as get, self.assertRaises(UserError):
             partner.action_autofill_from_registry()
         get.assert_not_called()
+
+    def test_search_by_name_and_select(self):
+        partner = self.env["res.partner"].create({"name": "total energies", "is_company": True})
+        # 1er appel : recherche par nom, 2e appel : fiche complète de l'entreprise choisie
+        with patch(REQUESTS_GET, side_effect=[mock_response(SIRENE_TOTAL), mock_response(SIRENE_TOTAL)]) as get:
+            action = partner.action_open_registry_search()
+            wizard = self.env["partner.registry.search"].browse(action["res_id"])
+            self.assertEqual(get.call_args.kwargs["params"]["q"], "total energies")
+            self.assertEqual(get.call_args.kwargs["params"]["etat_administratif"], "A")
+            self.assertEqual(wizard.line_ids.mapped("name"), ["TOTALENERGIES SE"])
+            self.assertEqual(wizard.line_ids.city, "Courbevoie")
+            wizard.line_ids.action_select()
+        self.assertEqual(partner.name, "TOTALENERGIES SE")
+        self.assertEqual(partner.vat, "FR59542051180")
+        self.assertEqual(partner.city, "Courbevoie")
+
+    def test_search_by_name_no_result(self):
+        partner = self.env["res.partner"].create({"name": "zzzz", "is_company": True})
+        with patch(REQUESTS_GET, return_value=mock_response({"results": []})):
+            action = partner.action_open_registry_search()
+        wizard = self.env["partner.registry.search"].browse(action["res_id"])
+        self.assertTrue(wizard.searched)
+        self.assertFalse(wizard.line_ids)
+        self.assertEqual(partner.name, "zzzz")

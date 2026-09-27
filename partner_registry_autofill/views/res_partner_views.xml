@@ -8,8 +8,12 @@
             <xpath expr="//field[@name='vat']" position="after">
                 <button name="action_autofill_from_registry" type="object"
                         string="Update from registry" icon="fa-download"
-                        class="btn-link p-0" colspan="2"
+                        class="btn-secondary btn-sm my-1" colspan="2"
                         invisible="not vat or not id"/>
+                <button name="action_open_registry_search" type="object"
+                        string="Search company by name" icon="fa-search"
+                        class="btn-secondary btn-sm my-1" colspan="2"
+                        invisible="vat or not is_company"/>
             </xpath>
         </field>
     </record>

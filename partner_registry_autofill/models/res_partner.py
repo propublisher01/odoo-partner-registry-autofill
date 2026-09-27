@@ -43,6 +43,29 @@ class ResPartner(models.Model):
             raise UserError(_("Enter a VAT or company registry number first."))
         self.write(self._registry_fetch(number))
 
+    def action_open_registry_search(self):
+        """Bouton "Search company by name" : ouvre la recherche avec le nom déjà saisi."""
+        self.ensure_one()
+        wizard = self.env["partner.registry.search"].create({"partner_id": self.id, "query": self.name})
+        return wizard.action_search()
+
+    @api.model
+    def _registry_search_fr(self, query):
+        """Recherche par nom dans SIRENE (entreprises actives uniquement)."""
+        data = self._registry_get_json(
+            SIRENE_URL, params={"q": query, "per_page": 10, "etat_administratif": "A"}
+        )
+        results = []
+        for company in data.get("results", []):
+            siege = company.get("siege") or {}
+            results.append({
+                "name": company.get("nom_raison_sociale") or company.get("nom_complet"),
+                "number": company.get("siren"),
+                "zip": siege.get("code_postal"),
+                "city": self._registry_title_case(siege.get("libelle_commune")),
+            })
+        return results
+
     @api.model
     def _registry_normalize(self, number):
         return re.sub(r"[^0-9A-Z]", "", (number or "").upper())

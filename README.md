@@ -12,7 +12,8 @@ Free: no IAP credits, no API key.
 
 ## Modules
 
-- **partner_registry_autofill**: autofill on the VAT field of contacts, plus an *Update from registry* button on saved companies.
+- **partner_registry_autofill**: autofill on the VAT field of contacts, an *Update from registry* button on saved companies,
+  and a *Search company by name* dialog (French companies).
 - **partner_registry_autofill_autocomplete**: technical bridge, installed automatically when Odoo's *Partner Autocomplete* is present. It removes the IAP suggestions from the VAT field only; name search keeps working.
 
 ## Installation

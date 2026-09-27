@@ -6,14 +6,29 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0-20260908\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-27 08:27+0000\n"
-"PO-Revision-Date: 2026-09-27 08:27+0000\n"
+"POT-Creation-Date: 2026-09-27 09:34+0000\n"
+"PO-Revision-Date: 2026-09-27 09:34+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: partner_registry_autofill
+#: model_terms:ir.ui.view,arch_db:partner_registry_autofill.partner_registry_search_view_form
+msgid "Cancel"
+msgstr "Annuleren"
+
+#. module: partner_registry_autofill
+#: model:ir.model.fields,field_description:partner_registry_autofill.field_partner_registry_search_line__city
+msgid "City"
+msgstr "Plaats"
+
+#. module: partner_registry_autofill
+#: model:ir.model.fields,field_description:partner_registry_autofill.field_partner_registry_search__query
+msgid "Company name"
+msgstr "Bedrijfsnaam"
 
 #. module: partner_registry_autofill
 #. odoo-python
@@ -27,6 +42,20 @@ msgid "Contact"
 msgstr "Contact"
 
 #. module: partner_registry_autofill
+#: model:ir.model.fields,field_description:partner_registry_autofill.field_partner_registry_search__create_uid
+#: model:ir.model.fields,field_description:partner_registry_autofill.field_partner_registry_search_line__create_uid
+msgid "Created by"
+msgstr "Aangemaakt door"
+
+#. module: partner_registry_autofill
+#: model:ir.model.fields,field_description:partner_registry_autofill.field_partner_registry_search__create_date
+#: model:ir.model.fields,field_description:partner_registry_autofill.field_partner_registry_search_line__create_date
+msgid "Created on"
+msgstr "Aangemaakt op"
+
+#. module: partner_registry_autofill
+#: model:ir.model.fields,field_description:partner_registry_autofill.field_partner_registry_search__display_name
+#: model:ir.model.fields,field_description:partner_registry_autofill.field_partner_registry_search_line__display_name
 #: model:ir.model.fields,field_description:partner_registry_autofill.field_res_partner__display_name
 msgid "Display Name"
 msgstr "Weergavenaam"
@@ -38,9 +67,33 @@ msgid "Enter a VAT or company registry number first."
 msgstr "Vul eerst een btw- of ondernemingsnummer in."
 
 #. module: partner_registry_autofill
+#: model:ir.model.fields,field_description:partner_registry_autofill.field_partner_registry_search__id
+#: model:ir.model.fields,field_description:partner_registry_autofill.field_partner_registry_search_line__id
 #: model:ir.model.fields,field_description:partner_registry_autofill.field_res_partner__id
 msgid "ID"
 msgstr "ID"
+
+#. module: partner_registry_autofill
+#: model:ir.model.fields,field_description:partner_registry_autofill.field_partner_registry_search__write_uid
+#: model:ir.model.fields,field_description:partner_registry_autofill.field_partner_registry_search_line__write_uid
+msgid "Last Updated by"
+msgstr "Laatst bijgewerkt door"
+
+#. module: partner_registry_autofill
+#: model:ir.model.fields,field_description:partner_registry_autofill.field_partner_registry_search__write_date
+#: model:ir.model.fields,field_description:partner_registry_autofill.field_partner_registry_search_line__write_date
+msgid "Last Updated on"
+msgstr "Laatst bijgewerkt op"
+
+#. module: partner_registry_autofill
+#: model:ir.model.fields,field_description:partner_registry_autofill.field_partner_registry_search__line_ids
+msgid "Line"
+msgstr "Regel"
+
+#. module: partner_registry_autofill
+#: model:ir.model.fields,field_description:partner_registry_autofill.field_partner_registry_search_line__name
+msgid "Name"
+msgstr "Naam"
 
 #. module: partner_registry_autofill
 #. odoo-python
@@ -53,6 +106,53 @@ msgstr "Geen Franse onderneming gevonden voor SIREN %s."
 #: code:addons/partner_registry_autofill/models/res_partner.py:0
 msgid "No active Belgian company found for number %s."
 msgstr "Geen actieve Belgische onderneming gevonden voor nummer %s."
+
+#. module: partner_registry_autofill
+#: model_terms:ir.ui.view,arch_db:partner_registry_autofill.partner_registry_search_view_form
+msgid "No active French company found."
+msgstr "Geen actieve Franse onderneming gevonden."
+
+#. module: partner_registry_autofill
+#: model:ir.model.fields,field_description:partner_registry_autofill.field_partner_registry_search__partner_id
+msgid "Partner"
+msgstr "Relatie"
+
+#. module: partner_registry_autofill
+#: model:ir.model,name:partner_registry_autofill.model_partner_registry_search_line
+msgid "Registry search result"
+msgstr "Zoekresultaat in register"
+
+#. module: partner_registry_autofill
+#: model:ir.model.fields,field_description:partner_registry_autofill.field_partner_registry_search_line__number
+msgid "SIREN"
+msgstr "SIREN"
+
+#. module: partner_registry_autofill
+#: model_terms:ir.ui.view,arch_db:partner_registry_autofill.partner_registry_search_view_form
+msgid "Search"
+msgstr "Zoeken"
+
+#. module: partner_registry_autofill
+#: model:ir.model,name:partner_registry_autofill.model_partner_registry_search
+msgid "Search a company in the registry"
+msgstr "Een onderneming zoeken in het register"
+
+#. module: partner_registry_autofill
+#. odoo-python
+#: code:addons/partner_registry_autofill/wizard/partner_registry_search.py:0
+#: model_terms:ir.ui.view,arch_db:partner_registry_autofill.view_partner_form_registry_autofill
+msgid "Search company by name"
+msgstr "Onderneming zoeken op naam"
+
+#. module: partner_registry_autofill
+#: model:ir.model.fields,field_description:partner_registry_autofill.field_partner_registry_search__searched
+msgid "Searched"
+msgstr "Gezocht"
+
+#. module: partner_registry_autofill
+#: model_terms:ir.ui.view,arch_db:partner_registry_autofill.partner_registry_search_view_form
+msgid "Select"
+msgstr "Kiezen"
 
 #. module: partner_registry_autofill
 #. odoo-python
@@ -70,3 +170,18 @@ msgstr "Niet-herkend nummer: %s"
 #: model_terms:ir.ui.view,arch_db:partner_registry_autofill.view_partner_form_registry_autofill
 msgid "Update from registry"
 msgstr "Bijwerken vanuit register"
+
+#. module: partner_registry_autofill
+#: model:ir.model.fields,field_description:partner_registry_autofill.field_partner_registry_search_line__wizard_id
+msgid "Wizard"
+msgstr "Wizard"
+
+#. module: partner_registry_autofill
+#: model:ir.model.fields,field_description:partner_registry_autofill.field_partner_registry_search_line__zip
+msgid "Zip"
+msgstr "Postcode"
+
+#. module: partner_registry_autofill
+#: model_terms:ir.ui.view,arch_db:partner_registry_autofill.partner_registry_search_view_form
+msgid "e.g. Boulangerie Paul"
+msgstr "bijv. Boulangerie Paul"

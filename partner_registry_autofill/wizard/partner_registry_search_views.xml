@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="partner_registry_search_view_form" model="ir.ui.view">
+        <field name="name">partner.registry.search.form</field>
+        <field name="model">partner.registry.search</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="searched" invisible="1"/>
+                <div class="d-flex gap-2 mb-3">
+                    <field name="query" nolabel="1" class="flex-grow-1" placeholder="e.g. Boulangerie Paul"/>
+                    <button name="action_search" type="object" string="Search" icon="fa-search" class="btn-primary"/>
+                </div>
+                <p class="text-muted" invisible="line_ids or not searched">No active French company found.</p>
+                <field name="line_ids" nolabel="1" readonly="1" invisible="not line_ids">
+                    <list>
+                        <field name="name"/>
+                        <field name="zip"/>
+                        <field name="city"/>
+                        <field name="number"/>
+                        <button name="action_select" type="object" string="Select" icon="fa-check" class="btn-link"/>
+                    </list>
+                </field>
+                <footer>
+                    <button string="Cancel" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
