@@ -1,7 +1,7 @@
 {
-    "name": "Partner Autofill from Company Registry (BE/FR)",
-    "summary": "Fill a company's name and address from the Belgian (VIES) or French (SIRENE) registry",
-    "version": "19.0.1.1.1",
+    "name": "Company Autofill Belgium & France: VAT, VIES, BCE/KBO, SIREN/SIRET (Free)",
+    "summary": "Type a VAT, BCE/KBO, SIREN or SIRET number and Odoo fills in the company name and address from official registries (VIES, INSEE SIRENE). Search French companies by name. Free: no IAP credits, no API key.",
+    "version": "19.0.1.1.2",
     "category": "Sales/CRM",
     "author": "Marc Frankard",
     "website": "https://www.propublisher.be",
