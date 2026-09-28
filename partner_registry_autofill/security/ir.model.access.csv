@@ -1,3 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_partner_registry_search,partner.registry.search,model_partner_registry_search,base.group_partner_manager,1,1,1,1
-access_partner_registry_search_line,partner.registry.search.line,model_partner_registry_search_line,base.group_partner_manager,1,1,1,1

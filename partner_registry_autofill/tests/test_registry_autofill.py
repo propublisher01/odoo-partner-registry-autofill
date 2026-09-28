@@ -20,6 +20,7 @@ SIRENE_TOTAL = {
         "nom_complet": "TOTALENERGIES SE (TOTALENERGIE SE)",
         "nom_raison_sociale": "TOTALENERGIES SE",
         "siege": {
+            "siret": "54205118000066",
             "numero_voie": "2",
             "type_voie": "PL",
             "libelle_voie": "JEAN MILLIER",
@@ -51,7 +52,7 @@ class TestRegistryAutofill(TransactionCase):
         self.assertEqual(form.city, "Bruxelles")
         self.assertEqual(form.country_id, self.env.ref("base.be"))
         self.assertEqual(form.vat, "BE0403170701")
-        self.assertEqual(form.company_registry, "0403170701")
+        self.assertEqual(form.additional_identifiers["BE_EN"], "0403170701")
         self.assertTrue(form.is_company)
 
     def test_onchange_french_siret(self):
@@ -69,6 +70,8 @@ class TestRegistryAutofill(TransactionCase):
         self.assertEqual(form.country_id, self.env.ref("base.fr"))
         # Numéro de TVA intracommunautaire calculé à partir du SIREN
         self.assertEqual(form.vat, "FR59542051180")
+        self.assertEqual(form.additional_identifiers["FR_SIREN"], "542051180")
+        self.assertEqual(form.additional_identifiers["FR_SIRET"], "54205118000066")
 
     def test_title_case(self):
         title_case = self.env["res.partner"]._registry_title_case

@@ -1,6 +1,6 @@
 # Partner Autofill from Company Registry (BE/FR)
 
-Odoo 19 modules that fill a company contact's legal name and address from official registries,
+Odoo 20 modules that fill a company contact's legal name and address from official registries,
 as soon as a VAT or company number is typed.
 
 | Country | Numbers accepted | Source |

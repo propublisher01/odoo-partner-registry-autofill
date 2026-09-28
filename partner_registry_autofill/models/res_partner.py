@@ -27,7 +27,7 @@ class ResPartner(models.Model):
         sans avoir besoin d'enregistrer la fiche d'abord."""
         number = self._registry_normalize(self.vat)
         # On ne relance pas l'appel si la fiche a déjà été remplie pour ce numéro
-        if not self._registry_is_complete(number) or number.endswith(self.company_registry or "#"):
+        if not self._registry_is_complete(number) or number.endswith(self._registry_known_number() or "#"):
             return
         try:
             vals = self._registry_fetch(number)
@@ -38,7 +38,7 @@ class ResPartner(models.Model):
     def action_autofill_from_registry(self):
         """Bouton "Update from registry" : met à jour une fiche existante à partir du numéro saisi."""
         self.ensure_one()
-        number = self._registry_normalize(self.vat or self.company_registry)
+        number = self._registry_normalize(self.vat or self._registry_known_number())
         if not number:
             raise UserError(_("Enter a VAT or company registry number first."))
         self.write(self._registry_fetch(number))
@@ -65,6 +65,15 @@ class ResPartner(models.Model):
                 "city": self._registry_title_case(siege.get("libelle_commune")),
             })
         return results
+
+    def _registry_known_number(self):
+        """Numéro d'entreprise déjà enregistré sur la fiche (Odoo 20 : additional_identifiers)."""
+        identifiers = self.additional_identifiers or {}
+        return identifiers.get("BE_EN") or identifiers.get("FR_SIRET") or identifiers.get("FR_SIREN")
+
+    def _registry_identifiers(self, **identifiers):
+        """Ajoute les identifiants du registre à ceux déjà présents sur la fiche."""
+        return dict(self.additional_identifiers or {}, **{k: v for k, v in identifiers.items() if v})
 
     @api.model
     def _registry_normalize(self, number):
@@ -111,7 +120,7 @@ class ResPartner(models.Model):
         vals = {
             "name": data.get("name"),
             "vat": "BE%s" % number,
-            "company_registry": number,
+            "additional_identifiers": self._registry_identifiers(BE_EN=number),
             "country_id": self.env.ref("base.be").id,
             "is_company": True,
         }
@@ -145,7 +154,8 @@ class ResPartner(models.Model):
             # nom_complet ajoute le sigle entre parenthèses : "TOTALENERGIES SE (TOTALENERGIE SE)"
             "name": company.get("nom_raison_sociale") or company.get("nom_complet"),
             "vat": "FR%02d%s" % (vat_key, siren),
-            "company_registry": siren,
+            # Odoo 20 déduit lui-même le SIREN à partir du SIRET
+            "additional_identifiers": self._registry_identifiers(FR_SIREN=siren, FR_SIRET=siege.get("siret")),
             "street": self._registry_title_case(street),
             "street2": self._registry_title_case(siege.get("complement_adresse")) or False,
             "zip": siege.get("code_postal"),
