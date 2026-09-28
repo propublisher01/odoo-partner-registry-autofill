@@ -157,6 +157,12 @@ msgstr ""
 #. module: partner_registry_autofill
 #. odoo-python
 #: code:addons/partner_registry_autofill/models/res_partner.py:0
+msgid "The Belgian registry (VIES) is temporarily unavailable (%s). Please try again in a moment."
+msgstr ""
+
+#. module: partner_registry_autofill
+#. odoo-python
+#: code:addons/partner_registry_autofill/models/res_partner.py:0
 msgid "The registry could not be reached: %s"
 msgstr ""
 

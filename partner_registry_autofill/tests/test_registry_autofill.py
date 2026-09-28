@@ -13,7 +13,8 @@ VIES_ELECTRABEL = {
     "name": "SA ELECTRABEL",
     "address": "Boulevard Simon Bolivar 36\n1000 Bruxelles",
 }
-VIES_INVALID = {"isValid": False, "name": "---", "address": "---"}
+VIES_INVALID = {"isValid": False, "userError": "INVALID", "name": "---", "address": "---"}
+VIES_BUSY = {"isValid": False, "userError": "MS_MAX_CONCURRENT_REQ", "name": "---", "address": "---"}
 SIRENE_TOTAL = {
     "results": [{
         "siren": "542051180",
@@ -86,6 +87,13 @@ class TestRegistryAutofill(TransactionCase):
         with patch(REQUESTS_GET, return_value=mock_response(VIES_INVALID)):
             result = partner._onchange_vat_registry_autofill()
         self.assertIn("warning", result)
+        self.assertEqual(partner.name, "Draft")
+
+    def test_onchange_vies_unavailable_is_not_reported_as_unknown(self):
+        partner = self.env["res.partner"].new({"name": "Draft", "vat": "BE0403170701"})
+        with patch(REQUESTS_GET, return_value=mock_response(VIES_BUSY)):
+            result = partner._onchange_vat_registry_autofill()
+        self.assertIn("MS_MAX_CONCURRENT_REQ", result["warning"]["message"])
         self.assertEqual(partner.name, "Draft")
 
     def test_onchange_incomplete_number_does_not_call_registry(self):
