@@ -104,6 +104,13 @@ class ResPartner(models.Model):
         number = number.zfill(10)
         data = self._registry_get_json(VIES_URL % number)
         if not data.get("isValid"):
+            # userError vaut "INVALID" si le numéro n'existe pas ; les autres valeurs
+            # (MS_UNAVAILABLE, MS_MAX_CONCURRENT_REQ...) signalent une indisponibilité temporaire de VIES
+            if data.get("userError", "INVALID") != "INVALID":
+                raise UserError(_(
+                    "The Belgian registry (VIES) is temporarily unavailable (%s). Please try again in a moment.",
+                    data["userError"],
+                ))
             raise UserError(_("No active Belgian company found for number %s.", number))
 
         # VIES renvoie l'adresse en 2 lignes : "Rue 12\n1000 Bruxelles"
