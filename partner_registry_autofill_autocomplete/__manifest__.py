@@ -1,7 +1,7 @@
 {
-    "name": "Partner Autofill from Company Registry - Partner Autocomplete bridge",
+    "name": "Company Autofill Belgium & France - Partner Autocomplete bridge",
     "summary": "Let the official registry handle the VAT field when Partner Autocomplete is installed",
-    "version": "20.0.1.0.0",
+    "version": "20.0.1.0.1",
     "category": "Hidden",
     "author": "Marc Frankard",
     "website": "https://www.propublisher.be",

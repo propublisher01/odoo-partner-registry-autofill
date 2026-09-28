@@ -1,4 +1,4 @@
-# Partner Autofill from Company Registry (BE/FR)
+# Company Autofill Belgium & France: VAT, VIES, BCE/KBO, SIREN/SIRET (Free)
 
 Odoo 20 modules that fill a company contact's legal name and address from official registries,
 as soon as a VAT or company number is typed.
@@ -18,7 +18,7 @@ Free: no IAP credits, no API key.
 
 ## Installation
 
-Add this repository to your addons path, update the apps list and install *Partner Autofill from Company Registry (BE/FR)*.
+Add this repository to your addons path, update the apps list and install *Company Autofill Belgium & France*.
 The Odoo server needs outgoing internet access to reach the registries.
 
 ## Translations
